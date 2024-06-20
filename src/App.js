@@ -17,13 +17,14 @@ function App() {
                 <Header />
                 <div className="main-content">
                     <Routes>
-                        <Route path="/" element={<Navigate to="/home" />} />
+                        <Route path="/" element={<HomePage />} />
                         <Route path="/home" element={<HomePage />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/services" element={<Services />} />
                         <Route path="/portfolio" element={<Portfolio />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/cv" element={<Cv />} />
+                        <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                 </div>
                 <Footer />
