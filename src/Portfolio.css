@@ -1,0 +1,160 @@
+body {
+    background: #080808;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    padding: 10px 10%;
+}
+
+#portfolio {
+    padding: 50px 0;
+}
+
+.work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.work {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+
+.layer h3,
+.layer p {
+    margin: 10px 0;
+}
+
+.layer a {
+    margin-top: 20px;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.layer a:hover {
+    background-color: #ff004f;
+    color: #fff;
+}
+
+.work:hover img {
+    transform: scale(1.1);
+}
+
+.work:hover .layer {
+    height: 100%;
+}
+
+.btn {
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+
+.btn:hover {
+    background: #ff004f;
+}
+
+nav .fas {
+    display: none;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.dark-mode nav ul li a {
+    color: #ffffff;
+}
+
+body.dark-mode .sub-title,
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode ul,
+body-dark-mode li,
+body-dark-mode .tab-contents {
+    color: #e66565;
+}
+
+body.dark-mode .layer {
+    color: #ffffff;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode nav ul li a {
+    color: #000000;
+}
+
+body.light-mode .sub-title,
+body-light-mode p,
+body-light-mode h1,
+body-light-mode ul,
+body-light-mode li,
+body-light-mode .tab-contents {
+    color: #000000;
+}
+
+body-light-mode .layer {
+    color: #00bfff; /* Light blue text in light mode */
+}
+
+body-light-mode .services-list div {
+    background: #d3d3d3;
+}
+
+body-light-mode .services-list div a {
+    color: #000000;
+}

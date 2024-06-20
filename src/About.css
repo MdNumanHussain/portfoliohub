@@ -1,0 +1,252 @@
+body {
+    background: #080808;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    padding: 10px 10%;
+}
+
+.row {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    flex-wrap: wrap;
+    text-align: center; /* Center text within the content */
+}
+
+.about-col-1 {
+    flex-basis: 100%; /* Take the full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the image horizontally */
+    margin-bottom: 20px;
+}
+
+.about-col-1 img {
+    width: 400px; /* Set a fixed size for the image */
+    height: 400px; /* Set a fixed size for the image */
+    border-radius: 50%; /* Make the image circular */
+    border: 5px solid blue; /* Add a blue border */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.about-col-1 img:hover {
+    transform: scale(1.2); /* Zoom in effect on hover */
+}
+
+.about-col-2 {
+    flex-basis: 100%; /* Take the full width */
+    text-align: left; /* Align text to the left */
+    padding-left: 20px; /* Add padding to align with other sections */
+}
+
+.sub-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: #fc0000;
+    overflow: hidden; /* Ensures the text does not overflow the width of the element */
+    border-right: .15em solid orange; /* Cursor simulating a typewriter */
+    white-space: nowrap; /* Keeps the text in a single line */
+    box-sizing: border-box;
+    width: 100%; /* Ensures the text container fills its parent */
+    text-align: center; /* Center text within the element */
+}
+
+/* Typewriter typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Cursor animations */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+}
+
+.tab-titles {
+    display: flex;
+    justify-content: center; /* Center the tabs horizontally */
+    font-size: 30px;
+    margin: 20px 0 40px;
+    font-weight: bold;
+    color: chartreuse;
+}
+
+.tab-links {
+    margin-right: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 20px; /* Adds padding for better clickability and aesthetics */
+    transition: background-color 0.5s ease, width 0.5s ease; /* Smooth transitions */
+}
+
+.tab-links:hover {
+    background-color: #b300ff; 
+    border-radius: 15px;
+}
+
+.tab-links::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #f00101;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: width 0.5s ease;
+}
+
+.tab-links.active-link::after {
+    width: 100%; /* Ensures the underline expands fully under the active link */
+}
+
+.tab-contents ul li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.tab-contents ul li span {
+    color: #b54769;
+    font-size: 14px;
+}
+
+.tab-contents {
+    display: none;
+}
+
+.tab-contents.active-tab {
+    display: block;
+}
+
+nav .fas {
+    display: none;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.dark-mode nav ul li a {
+    color: #ffffff;
+}
+
+body.dark-mode #about {
+    color: #ffffff;
+}
+
+body.dark-mode .sub-title, 
+body.dark-mode p, 
+body.dark-mode h1, 
+body.dark-mode ul, 
+body.dark-mode li, 
+body.dark-mode .tab-contents {
+    color: #ffffff;
+}
+
+body.dark-mode .tab-links {
+    color: chartreuse;
+}
+
+body.dark-mode .tab-links::after {
+    background: #ff004f;
+}
+
+body.dark-mode .tab-links:hover {
+    background-color: #b300ff;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode nav ul li a {
+    color: #000000;
+}
+
+body.light-mode #about {
+    color: #000000;
+}
+
+body.light-mode .sub-title { 
+    color: #000000;
+}
+
+body.light-mode p, 
+body-light-mode h1, 
+body-light-mode ul, 
+body-light-mode li, 
+body-light-mode .tab-contents {
+    color: #000000;
+}
+
+body.light-mode .tab-links {
+    color: #000000;
+}
+
+body-light-mode .tab-links::after {
+    background: #000000;
+}
+
+body-light-mode .tab-links:hover {
+    background-color: #d3d3d3;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .about-col-1 img {
+        width: 150px; /* Adjust size for mobile */
+        height: 150px; /* Adjust size for mobile */
+    }
+    
+    .sub-title {
+        font-size: 40px; /* Adjust size for mobile */
+    }
+    
+    .tab-titles {
+        font-size: 20px; /* Adjust size for mobile */
+        flex-direction: column; /* Stack tabs vertically on mobile */
+        margin: 10px 0; /* Adjust margin for mobile */
+    }
+    
+    .tab-links {
+        margin-right: 0; /* Remove margin for mobile */
+        padding: 5px 10px; /* Adjust padding for mobile */
+        margin-bottom: 10px; /* Add margin bottom for spacing */
+    }
+    
+    .about-col-2 {
+        padding-left: 0; /* Remove padding for mobile */
+    }
+}
