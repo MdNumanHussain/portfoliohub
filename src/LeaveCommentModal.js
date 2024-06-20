@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './LeaveCommentModal.css';
+import { database, ref, push } from './firebase';
 
 function LeaveCommentModal({ isOpen, onClose, addTestimonial }) {
     const [quote, setQuote] = useState("");
@@ -10,12 +11,23 @@ function LeaveCommentModal({ isOpen, onClose, addTestimonial }) {
         setDate(new Date().toLocaleDateString());
     }, [isOpen]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (quote && author) {
-            addTestimonial({ quote, author, date });
+            const newTestimonial = { quote, author, date };
+            addTestimonial(newTestimonial);
+
+            // Save to Firebase
+            try {
+                const testimonialsRef = ref(database, 'testimonials');
+                await push(testimonialsRef, newTestimonial);
+            } catch (error) {
+                console.error('Error submitting testimonial:', error);
+            }
+
             setQuote("");
             setAuthor("");
+            onClose();
         }
     };
 

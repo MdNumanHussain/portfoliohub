@@ -3,29 +3,26 @@ import './HomePage.css';
 import coverImage from './images/Cover.png';
 import profileImage from './images/Profile.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookOpen, faRobot, faBlog, faComments, faArrowUp, faArrowDown, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import { applyStoredTheme, toggleAccessibility } from './theme';
+import { faBookOpen, faRobot, faBlog, faComments, faArrowUp, faArrowDown, faUser } from '@fortawesome/free-solid-svg-icons';
 import TestimonialModal from './TestimonialModal';
 import LeaveCommentModal from './LeaveCommentModal';
+import { database, ref, onValue, push } from './firebase';
 
 function HomePage() {
     const [currentSection, setCurrentSection] = useState('middle');
     const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme") !== "light");
     const [showModal, setShowModal] = useState(false);
     const [showCommentModal, setShowCommentModal] = useState(false);
-    const [testimonials, setTestimonials] = useState([
-        { quote: "Numan is a highly skilled software engineer with a knack for solving complex problems efficiently.", author: "Client A", date: "26/05/2024" },
-        { quote: "Working with Numan has been a pleasure; his dedication and expertise are evident in every project.", author: "Client B", date: "26/05/2024" },
-        { quote: "He is an amazing person.", author: "Md Numan Hussain", date: "26/05/2024" },
-    ]);
+    const [testimonials, setTestimonials] = useState([]);
 
     useEffect(() => {
-        console.log("HomePage useEffect called");
-        applyStoredTheme();
-        setIsDarkMode(localStorage.getItem("theme") !== "light");
+        const testimonialsRef = ref(database, 'testimonials');
+        onValue(testimonialsRef, (snapshot) => {
+            const data = snapshot.val();
+            const parsedTestimonials = data ? Object.values(data) : [];
+            setTestimonials(parsedTestimonials);
+        });
     }, []);
-
-    console.log("HomePage render called");
 
     const handleSlideUp = () => {
         setCurrentSection('left');
@@ -35,12 +32,9 @@ function HomePage() {
         setCurrentSection('right');
     };
 
-    const handleToggleTheme = () => {
-        toggleAccessibility();
-        setIsDarkMode(prevMode => !prevMode);
-    };
-
     const handleAddTestimonial = (newTestimonial) => {
+        const testimonialsRef = ref(database, 'testimonials');
+        push(testimonialsRef, newTestimonial);
         setTestimonials(prevTestimonials => [newTestimonial, ...prevTestimonials]);
     };
 
@@ -50,9 +44,15 @@ function HomePage() {
                 <div className="column left-column">
                     <h2>Testimonials</h2>
                     {testimonials.slice(0, 3).reverse().map((testimonial, index) => (
-                        <div key={index}>
-                            <p>{testimonial.author} on {testimonial.date}</p>
-                            <p>{testimonial.quote}</p>
+                        <div key={index} className="testimonial-item">
+                            <div className="testimonial-header">
+                                <FontAwesomeIcon icon={faUser} className="testimonial-icon" />
+                                <div>
+                                    <span className="testimonial-author">{testimonial.author}</span>
+                                    <span className="testimonial-date">{testimonial.date}</span>
+                                </div>
+                            </div>
+                            <p className="testimonial-quote">"{testimonial.quote}"</p>
                         </div>
                     ))}
                     <button className="view-testimonials" onClick={() => setShowModal(true)}>
