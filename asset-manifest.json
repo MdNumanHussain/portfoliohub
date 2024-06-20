@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/portfoliohub/static/css/main.f3c784a4.css",
+    "main.js": "/portfoliohub/static/js/main.702a27cd.js",
+    "static/media/about.JPG": "/portfoliohub/static/media/about.2f38a5e97d1e82d4f1aa.JPG",
+    "static/media/work-3.png": "/portfoliohub/static/media/work-3.eb517af566a164d024bd.png",
+    "static/media/Cover.png": "/portfoliohub/static/media/Cover.eb3002f2ee207e8e1f79.png",
+    "static/media/Profile.png": "/portfoliohub/static/media/Profile.3b0a68945ebd9a3a6d7e.png",
+    "static/media/work-1.png": "/portfoliohub/static/media/work-1.2265bb10cbc9c1c761f5.png",
+    "static/media/cv.png": "/portfoliohub/static/media/cv.d47bddd76d9f9bf0fcac.png",
+    "static/media/work-2.png": "/portfoliohub/static/media/work-2.1c3080a988f5cb8d33a2.png",
+    "static/media/fa-solid-900.ttf": "/portfoliohub/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
+    "static/media/fa-brands-400.ttf": "/portfoliohub/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
+    "static/media/fa-solid-900.woff2": "/portfoliohub/static/media/fa-solid-900.4d986b00ff9ca3828fbd.woff2",
+    "static/media/cv.pdf": "/portfoliohub/static/media/cv.b6c2865678bfce5373d1.pdf",
+    "static/media/fa-brands-400.woff2": "/portfoliohub/static/media/fa-brands-400.455ea818179b4def0c43.woff2",
+    "static/media/fa-regular-400.ttf": "/portfoliohub/static/media/fa-regular-400.eb91f7b948a42799f678.ttf",
+    "static/media/logo.png": "/portfoliohub/static/media/logo.3b2c7ea7dbd0f25aa1fd.png",
+    "static/media/fa-regular-400.woff2": "/portfoliohub/static/media/fa-regular-400.21cb8f55d8e0c5b89751.woff2",
+    "static/media/cv.docx": "/portfoliohub/static/media/cv.6cdfd6553080ab17ea18.docx",
+    "static/media/fa-v4compatibility.ttf": "/portfoliohub/static/media/fa-v4compatibility.c8e090db312b0bea2aa2.ttf",
+    "static/media/fa-v4compatibility.woff2": "/portfoliohub/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
+    "index.html": "/portfoliohub/index.html",
+    "main.f3c784a4.css.map": "/portfoliohub/static/css/main.f3c784a4.css.map",
+    "main.702a27cd.js.map": "/portfoliohub/static/js/main.702a27cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3c784a4.css",
+    "static/js/main.702a27cd.js"
+  ]
+}
