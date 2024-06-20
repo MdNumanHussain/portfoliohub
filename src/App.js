@@ -12,7 +12,7 @@ import Cv from './Cv';
 
 function App() {
     return (
-        <Router>
+        <Router basename="/portfoliohub">
             <div className="App">
                 <Header />
                 <div className="main-content">
